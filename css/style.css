@@ -4,10 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
 @font-face {
-    font-family: 'Pacifico';
-    src:url(../fonts/Pacifico.ttf) format('truetype');
+    font-family: 'lotr_font';
+    src:url(../fonts/lotr_font.ttf) format('truetype');
 }
+
 body a{
     transition:0.5s all;
 	-webkit-transition:0.5s all;
@@ -40,25 +42,25 @@ body{
 	margin:0 0; 
 	font-family: 'Open Sans', sans-serif;
 }
-.logo a {
-  display: block;
-}
+
 .logo {
- position: absolute;
-   left: 40%;
+    position: inherit;
+    left: 40%;
     top: 33%;
     z-index: 9999;
-  }
+}
+
 .logo h1 a {
-    font-size: 1.3em;
+    font-size: 0.9em;
     text-transform: capitalize;
     text-decoration: none;
     color: #fff;
-    font-family: 'Pacifico';
+    font-family: 'lotr_font';
     display: block;
     padding: .5em 1em;
     background: #6fd508;
 }
+
 .header{
 position:relative;
 }
@@ -78,20 +80,20 @@ position:relative;
   display: inline-block;
 }
 .top-menu{
-	
 	padding: 1em 0 1em 0em;
 	background:#2f3e5d;
 }
 .top-menu ul li a {
     font-size: 1.1em;
+    font-family: lotr_font;
     color: #fff;
     text-transform: uppercase;
     padding: 0 2em;
     text-decoration: none;
 }
-.top-menu ul li:nth-child(3) {
-  margin-right: 26em;
-}
+/*.top-menu ul li:nth-child(2) {
+  margin-right: 43em;
+}*/
 .header-banner {
     background: url(../images/ban5.jpg) no-repeat 0px 0px;
     background-size: cover;
@@ -120,7 +122,7 @@ span.menu {
 	color: #fff;
   font-size: 3em;
   text-transform:capitalize;
-	font-family: 'Pacifico';
+	font-family: 'lotr_font';
 }
 .caption p{
   color: #fff;
@@ -200,7 +202,7 @@ ul.callbacks_tabs.callbacks1_tabs {
     font-size: 3em;
     color: #2f3e5d;
     text-transform: capitalize;
-	 font-family: 'Pacifico';
+	 font-family: 'lotr_font';
 }
 .wel-grids {
     margin-top: 3em;
@@ -292,7 +294,7 @@ a.button:hover {
     text-align: center;
     color: #2f3e5d;
     text-transform: capitalize;
-    font-family: 'Pacifico';
+    font-family: 'lotr_font';
 }
 .featu-grid {
     float: left;
@@ -336,7 +338,7 @@ a.button:hover {
     text-align: center;
     color: #fff;
     text-transform: capitalize;
-    font-family: 'Pacifico';
+    font-family: 'lotr_font';
 }
 .test-grids {
     margin-top: 3em;
@@ -412,7 +414,7 @@ a.button:hover {
     text-align: center;
     color: #2f3e5d;
     text-transform: capitalize;
-    font-family: 'Pacifico';
+    font-family: 'lotr_font';
 }
 .broker-grids {
     margin-top: 3em;
@@ -491,7 +493,7 @@ font-size: 1.5em;
     font-size: 3em;
     color: #fff;
     text-transform: capitalize;
-    font-family: 'Pacifico';
+    font-family: 'lotr_font';
 	    margin-bottom: .5em;
 }
 /**footer**/
@@ -525,7 +527,7 @@ font-size: 1.5em;
     font-size: 3em;
     color: #2f3e5d;
     text-transform: capitalize;
-    font-family: 'Pacifico';
+    font-family: 'lotr_font';
     text-align: center;
 }
 .about-grid1 h4 {
@@ -563,7 +565,7 @@ font-size: 1.5em;
     font-size: 3em;
     color: #2f3e5d;
     text-transform: capitalize;
-    font-family: 'Pacifico';
+    font-family: 'lotr_font';
 }
 .agent-grid1 {
     text-align: left;
@@ -1178,7 +1180,7 @@ h2.typoh2{
 .logo {
     left: 39%;
 }
-}
+
 @media(max-width:1366px){
 .header-banner {
     min-height: 614px;
@@ -1186,20 +1188,17 @@ h2.typoh2{
 .caption {
     margin-top: 19em;
 }
-.logo {
-    left: 38%;
+
+@media(max-width:1280px) {
+    .header-banner {
+        min-height: 567px;
+    }
 }
-@media(max-width:1280px){
-.header-banner {
-    min-height: 567px;
-}
-.logo {
-    left: 37%;
-}
+
 .caption {
     margin-top: 17em;
 }
-}
+
 @media(max-width:1080px){
 .caption {
     margin-top: 14em;
@@ -1211,9 +1210,7 @@ h2.typoh2{
     font-size: 1em;
     padding: 0 1.3em;
 }
-.logo {
-    left: 36%;
-}
+
 .caption p {
     font-size: 0.96em;
     width: 57%;
@@ -1295,15 +1292,7 @@ span.agent-text {
 .contact input[type="text"], .contact input[type="email"] {
     width: 31.1%
 }
-}
-@media(max-width:991px){
-.logo h1 a {
-    font-size: 1em;
-}
-.logo {
-    left: 37.5%;
-	top: 43%;
-}
+
 .top-menu ul li:nth-child(3) {
     margin-right: 16em;
 }
@@ -1486,19 +1475,7 @@ a.button {
 .contact input[type="text"], .contact input[type="email"] {
     width: 31.8%;
 }
-}
-@media(max-width:800px){
-.logo {
-    left: 34%;
-	top: 44%;
-}
-}
-@media (max-width: 768px){
-.logo {
-    left: 33.5%;
-    top: 44%;
-}
-}
+
 @media(max-width:640px){
  span.menu {
   display: block;
@@ -1543,10 +1520,7 @@ a.button {
 .top-header {
     margin-top: 3.5em;
 }
-.logo {
-    top: 35%;
-	left: 2%;
-}
+
 .header-banner {
     min-height: 283px;
 }
@@ -1634,18 +1608,14 @@ line-height:1.5em;
     min-height: 220px;
     margin: 2em 0 0;
 }
-}
-@media(max-width:480px){
-.logo {
-	top: 23%;
-}
+
 .top-header {
     margin-top: 2.5em;
 }
 .top-menu ul {
     width: 93.4%;
 	left: 3.3%;
- } 
+ }
 .caption {
     margin-top: 3.5em;
 }
@@ -1774,12 +1744,7 @@ a.button {
 .contact input.email {
     margin: 1em 0em;
 }
-}
-@media(max-width:320px){
-.logo {
-    left: 4.5%;
-	top: 34%;
-}
+
 .header-banner {
     min-height: 260px;
     background: url(../images/ban5.jpg) no-repeat -70px 0px;
@@ -1788,9 +1753,7 @@ a.button {
 .top-header {
     margin-top: 2.5em;
 }
-.logo h1 a {
-    font-size: .8em;
-}
+
 .top-menu ul {
     width: 90%;
     left: 5%;
@@ -1928,5 +1891,4 @@ a.button {
 }
 .contact input[type="submit"] {
     width: 23%;
-}
 }
