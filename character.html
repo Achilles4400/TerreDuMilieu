@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Univers de Tolkien</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="tout sur l'univers de Tolkien"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300'
+          rel='stylesheet' type='text/css'>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+
+        $(function(){
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+
+        function $_GET(param) {
+            var vars = {};
+            window.location.href.replace( location.hash, '' ).replace(
+                    /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+                    function( m, key, value ) { // callback
+                        vars[key] = value !== undefined ? value : '';
+                    }
+            );
+
+            if ( param ) {
+                return vars[param] ? vars[param] : null;
+            }
+            return vars;
+        }
+    </script>
+</head>
+<body>
+<!--header-->
+<div id="header"></div>
+<!--header-->
+
+<script>
+    var idCharacter = $_GET('id');
+
+    $.ajax({
+        url: "http://localhost/TerreDuMilieu/php/views/all_character.php",
+        success: function (data) {
+            var characterInfo = document.querySelector('#character-grids');
+
+            var characterOverview = JSON.parse(data);
+            var character = characterOverview[idCharacter-1]
+
+            console.log(character);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Nom : "+ character.nom;
+            characterInfo.appendChild(div);
+
+            var image = document.createElement('img');
+            image.src = character.image;
+
+            var div = document.createElement('div');
+            div.innerHTML = "Alias : "+ character.alias;
+            characterInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Naissance : "+ character.naissance;
+            characterInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Origine : "+ character.origine;
+            characterInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Deces : "+ character.deces;
+            characterInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Sexe : "+ character.sexe;
+            characterInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Espece : "+ character.espece;
+            characterInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Activite : "+ character.activite;
+            characterInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Caracteristiques : "+ character.caracteristique;
+            characterInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Affiliation : "+ character.affiliation;
+            characterInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Descritpion : "+ character.description;
+            characterInfo.appendChild(div);
+
+            characterInfo.appendChild(image);
+        }
+    });
+</script>
+
+<div id="character-grids">
+
+</div>
+
+<div id="footer"></div>
+<!--footer-->
+</body>
+</html>

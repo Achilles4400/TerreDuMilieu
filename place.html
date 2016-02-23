@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Univers de Tolkien</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="tout sur l'univers de Tolkien"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300'
+          rel='stylesheet' type='text/css'>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+
+        $(function(){
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+
+        function $_GET(param) {
+            var vars = {};
+            window.location.href.replace( location.hash, '' ).replace(
+                    /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+                    function( m, key, value ) { // callback
+                        vars[key] = value !== undefined ? value : '';
+                    }
+            );
+
+            if ( param ) {
+                return vars[param] ? vars[param] : null;
+            }
+            return vars;
+        }
+    </script>
+</head>
+<body>
+<!--header-->
+<div id="header"></div>
+<!--header-->
+
+<script>
+    var idPlace = $_GET('id');
+
+    $.ajax({
+        url: "http://localhost/TerreDuMilieu/php/views/all_place.php",
+        success: function (data) {
+            var placeInfo = document.querySelector('#place-grids');
+
+            var placeOverview = JSON.parse(data);
+            var place = placeOverview[idPlace-1]
+
+            console.log(place);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Nom : "+ place.lieu;
+            placeInfo.appendChild(div);
+
+            var image = document.createElement('img');
+            image.src = place.image;
+
+            var div = document.createElement('div');
+            div.innerHTML = "Emplacement : "+ place.emplacement;
+            placeInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Existence : "+ place.existence;
+            placeInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Fondateur : "+ place.fondateur;
+            placeInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "souverains : "+ place.souverains;
+            placeInfo.appendChild(div);
+
+            var div = document.createElement('div');
+            div.innerHTML = "Descritpion : "+ place.description;
+            placeInfo.appendChild(div);
+
+            placeInfo.appendChild(image);
+        }
+    });
+</script>
+
+<div id="place-grids">
+
+</div>
+
+<div id="footer"></div>
+<!--footer-->
+</body>
+</html>
